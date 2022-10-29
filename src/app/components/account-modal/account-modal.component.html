@@ -1,0 +1,175 @@
+<div
+  class="fixed w-full h-full z-10 left-0 top-0 flex justify-center items-center bg-gray-500/40 overflow-auto"
+>
+  <div
+    class="flex flex-col items-center p-5 bg-white w-4/5 border-2 border-gray-300 rounded-md overflow-auto"
+  >
+    <div
+      class="w-full font-bold text-gray-500 border-b-2 border-gray-500 mb-5 text-left pb-1"
+    >
+      <span>{{ selectedAccount ? "Edit Account" : "Add New Account" }}</span>
+    </div>
+
+    <div class="w-11/12 mb-5">
+      <div class="flex mb-4 w-full justify-start">
+        <div class="flex flex-col px-2">
+          <span class="mb-1">Company</span>
+
+          <div class="relative inline-flex">
+            <svg
+              class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 412 232"
+            >
+              <path
+                d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
+                fill="#648299"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <select
+              class="border-2 border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+              [(ngModel)]="newAccountInfo.companyInfo"
+            >
+              <option *ngFor="let company of companies" [ngValue]="company">
+                {{ company.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex flex-col px-2">
+          <span class="mb-1">Country</span>
+
+          <div class="relative inline-flex">
+            <svg
+              class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 412 232"
+            >
+              <path
+                d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
+                fill="#648299"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <select
+              class="border-2 border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+              [(ngModel)]="newAccountInfo.countryInfo"
+            >
+              <option *ngFor="let country of countries" [ngValue]="country">
+                {{ country.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex flex-col px-2">
+          <span class="mb-1">Local Currency</span>
+
+          <div class="relative inline-flex">
+            <svg
+              class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 412 232"
+            >
+              <path
+                d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
+                fill="#648299"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <select
+              class="border-2 border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+              [(ngModel)]="newAccountInfo.localCurrencyInfo"
+            >
+              <option *ngFor="let currency of currencies" [ngValue]="currency">
+                {{ currency.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex flex-col px-2">
+          <span class="mb-1">Bank</span>
+          <input
+            class="border-2 border-gray-300 bg-white h-10 px-5 pr-8 rounded-lg text-sm focus:outline-none"
+            type="text"
+            name="bank"
+            [(ngModel)]="newAccountInfo.newBankName"
+          />
+        </div>
+
+        <div class="flex flex-col px-2">
+          <span class="mb-1">Account</span>
+          <input
+            class="border-2 border-gray-300 bg-white h-10 px-5 pr-8 rounded-lg text-sm focus:outline-none"
+            type="text"
+            name="account"
+            [(ngModel)]="newAccountInfo.newAccount"
+          />
+        </div>
+
+        <div class="flex flex-col px-2">
+          <span class="mb-1">Acc Currency</span>
+
+          <div class="relative inline-flex">
+            <svg
+              class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 412 232"
+            >
+              <path
+                d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
+                fill="#648299"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <select
+              class="border-2 border-gray-300 rounded-md text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+              [(ngModel)]="newAccountInfo.accountCurrencyInfo"
+            >
+              <option *ngFor="let currency of currencies" [ngValue]="currency">
+                {{ currency.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col px-2">
+        <span class="mb-1">Responsable</span>
+        <input
+          class="border-2 border-gray-300 bg-white h-10 px-5 pr-8 rounded-lg text-sm focus:outline-none"
+          type="text"
+          name="Responsables"
+          [(ngModel)]="newAccountInfo.newUserCreation"
+        />
+      </div>
+    </div>
+
+    <div class="my-2 w-11/12 px-2 text-red-500">
+      <span *ngIf="errorMessage != ''">{{ errorMessage }}</span>
+    </div>
+
+    <div class="flex w-11/12 justify-end">
+      <button
+        class="px-4 py-2 mx-2 rounded-md text-sm font-medium border-0 focus:outline-none transition text-white bg-gray-500 hover:bg-gray-600 active:bg-gray-700"
+        (click)="closeModal()"
+      >
+        Cancel
+      </button>
+      <button
+        class="px-4 py-2 mx-2 rounded-md text-sm font-medium border-0 focus:outline-none transition text-white bg-gray-500 hover:bg-gray-600 active:bg-gray-700"
+        (click)="saveChanges(true)"
+      >
+        Save & New
+      </button>
+      <button
+        class="px-4 py-2 mx-2 rounded-md text-sm font-medium border-0 focus:outline-none transition text-white bg-gray-500 hover:bg-gray-600 active:bg-gray-700"
+        (click)="saveChanges(false)"
+      >
+        Save & Close
+      </button>
+    </div>
+  </div>
+</div>
